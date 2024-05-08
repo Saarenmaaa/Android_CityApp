@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AddCityScreen",
+    "\\AddLocationScreen",
+    "\\HomeScreen",
+    "\\InfoScreen",
+    "\\LocationsScreen"
+  ],
+  "SelectedNode": "\\AddCityScreen\\AddCity.tsx",
+  "PreviewInSolutionExplorer": false
+}
