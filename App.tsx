@@ -26,6 +26,8 @@ import { Info } from './src/InfoScreen/Info';
 import { IconButton } from 'react-native-paper';
 import { testData } from './src/Shared/TestData';
 import { CitiesProvider } from './src/Context/CitiesProvider';
+import { Provider } from 'react-redux';
+import CitiesStore from './src/Store/CitiesStore';
 
 // interfaces for data content of application
 export interface iLocation {
@@ -73,61 +75,63 @@ function App(): React.JSX.Element {
   //}
 
   return(
-    <NavigationContainer>
-      <CitiesProvider>
-        <Stack.Navigator 
-          initialRouteName='Cities'
-          screenOptions={{
-              headerTitleAlign: 'center',
-          }}
-          >
-          <Stack.Screen 
-            name='Cities'
-            component={Cities}
-            options={({navigation}) => ({
-              title: 'Cities App',
-              headerLeft: () => (
-                <IconButton 
-                  icon='information-outline'
-                  onPress={() => navigation.navigate('Info')}
-                  />
-              ),
-              headerRight: () => (
-                <IconButton 
-                  icon='plus-circle-outline'
-                  onPress={() => navigation.navigate('AddCity')}
-                  />
-              )
-            })}
-          ></Stack.Screen>
-          <Stack.Screen 
-            name='AddCity'
-            component={AddCity}
-            options={{
-              title: 'Add City'
+    <Provider store={CitiesStore}>
+      <NavigationContainer>
+        <CitiesProvider>
+          <Stack.Navigator 
+            initialRouteName='Cities'
+            screenOptions={{
+                headerTitleAlign: 'center',
             }}
-          ></Stack.Screen>
-          <Stack.Screen 
-            name='Locations'
-            component={Locations}
-            options={{
-              title: 'Locations of'
-            }}
-          ></Stack.Screen>
-          <Stack.Screen 
-            name='AddLocation'
-            component={AddLocation}
-            options={{
-              title: 'Add Location to'
-            }}
-          ></Stack.Screen>
-          <Stack.Screen 
-            name='Info'
-            component={Info}
-          ></Stack.Screen>
-        </Stack.Navigator>
-      </CitiesProvider>
-    </NavigationContainer>
+            >
+            <Stack.Screen 
+              name='Cities'
+              component={Cities}
+              options={({navigation}) => ({
+                title: 'Cities App',
+                headerLeft: () => (
+                  <IconButton 
+                    icon='information-outline'
+                    onPress={() => navigation.navigate('Info')}
+                    />
+                ),
+                headerRight: () => (
+                  <IconButton 
+                    icon='plus-circle-outline'
+                    onPress={() => navigation.navigate('AddCity')}
+                    />
+                )
+              })}
+            ></Stack.Screen>
+            <Stack.Screen 
+              name='AddCity'
+              component={AddCity}
+              options={{
+                title: 'Add City'
+              }}
+            ></Stack.Screen>
+            <Stack.Screen 
+              name='Locations'
+              component={Locations}
+              options={{
+                title: 'Locations of'
+              }}
+            ></Stack.Screen>
+            <Stack.Screen 
+              name='AddLocation'
+              component={AddLocation}
+              options={{
+                title: 'Add Location to'
+              }}
+            ></Stack.Screen>
+            <Stack.Screen 
+              name='Info'
+              component={Info}
+            ></Stack.Screen>
+          </Stack.Navigator>
+        </CitiesProvider>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
