@@ -8,7 +8,8 @@ import { useNavigation } from "@react-navigation/native";
 export const  Cities: React.FC<CitiesScreenProps> = ({route}) => {
     const navigation = useNavigation<CitiesNavigationProp>();
 
-    console.log(`Cities component ${JSON.stringify(route.params.cities)}`)
+    //console.log(`Cities component ${JSON.stringify(route.params.cities)}`)
+    
     return (
       <View style={styles.container}>
         <Text>Cities</Text>
