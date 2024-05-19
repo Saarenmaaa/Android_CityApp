@@ -6,7 +6,7 @@ import { InfoScreenProps } from "../../App";
 export const  Info: React.FC<InfoScreenProps> = () => {
     return (
       <View style={styles.container}>
-        <Text>Info Screen</Text>
+        <Text>Application InfoScreen</Text>
       </View>
     );
 }

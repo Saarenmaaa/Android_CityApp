@@ -24,8 +24,6 @@ import { AddLocation } from './src/AddLocationScreen/AddLocation';
 import { Locations } from './src/LocationsScreen/Locations';
 import { Info } from './src/InfoScreen/Info';
 import { IconButton } from 'react-native-paper';
-import { testData } from './src/Shared/TestData';
-import { CitiesProvider } from './src/Context/CitiesProvider';
 import { Provider } from 'react-redux';
 import CitiesStore from './src/Store/CitiesStore';
 
@@ -40,7 +38,7 @@ export interface iCity {
   id: string;
   name: string;
   country: string;
-  locations?: iLocation[];
+  locations: iLocation[];
 }
 
 // navigation route parameters
@@ -65,30 +63,24 @@ export type CitiesNavigationProp = NativeStackNavigationProp<RootStackParamList,
 export type LocationsNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Locations'>;
 export type AddLocationNavigationProp = NativeStackNavigationProp<RootStackParamList, 'AddLocation'>;
 
-// placeholder for two screens (ToDO: make a real component)
-
 function App(): React.JSX.Element {
-  //const [cities, setCities] = useState<iCity[]>(testData);
-
-  //const addCity = (city: iCity) => {
-  //  console.log(`adding a city ${JSON.stringify(city)}`);
-  //}
-
   return(
     <Provider store={CitiesStore}>
       <NavigationContainer>
-        <CitiesProvider>
           <Stack.Navigator 
             initialRouteName='Cities'
             screenOptions={{
                 headerTitleAlign: 'center',
+                headerStyle: {
+                  backgroundColor: '#F7DED0',
+                }
             }}
             >
             <Stack.Screen 
               name='Cities'
               component={Cities}
               options={({navigation}) => ({
-                title: 'Cities App',
+                title: 'List of Cities',
                 headerLeft: () => (
                   <IconButton 
                     icon='information-outline'
@@ -121,7 +113,7 @@ function App(): React.JSX.Element {
               name='AddLocation'
               component={AddLocation}
               options={{
-                title: 'Add Location to'
+                title: 'Add Location to '
               }}
             ></Stack.Screen>
             <Stack.Screen 
@@ -129,7 +121,6 @@ function App(): React.JSX.Element {
               component={Info}
             ></Stack.Screen>
           </Stack.Navigator>
-        </CitiesProvider>
       </NavigationContainer>
     </Provider>
   );
@@ -138,8 +129,6 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 

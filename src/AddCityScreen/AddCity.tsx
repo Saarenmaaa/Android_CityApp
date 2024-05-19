@@ -15,13 +15,9 @@ export const AddCity: React.FC<AddCityScreenProps> = () => {
   const cities = useCitiesSelector((state) => state.cities.allCities);
   const dispatch = useCitiesDispatch();
   const cityRef = useRef<any>(null);
-
-  //const {addCity} = useContext(CitiesContext);
-
   console.log(`AddCity ${JSON.stringify(cities)}`)
   return (
     <View style={styles.container}>
-      <Text>AddCity Screen</Text>
       <TextInput
         style={styles.intext}
         label="City name"
