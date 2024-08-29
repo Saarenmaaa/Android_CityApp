@@ -1,4 +1,3 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 ![image](https://github.com/Saarenmaaa/CityApp/assets/132883449/13be86d7-d47a-47fb-9859-847d947d4c23)
 
 # Getting Started
